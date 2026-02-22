@@ -9,6 +9,7 @@ setup.py
 ../../build/my_turtle_controller/my_turtle_controller.egg-info/top_level.txt
 ../../build/my_turtle_controller/my_turtle_controller.egg-info/zip-safe
 my_turtle_controller/__init__.py
+my_turtle_controller/calc.py
 my_turtle_controller/turtle_8.py
 my_turtle_controller/turtle_mover.py
 my_turtle_controller/turtle_pose_follow.py

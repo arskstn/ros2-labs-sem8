@@ -15,8 +15,8 @@ class TurtleFigureTriangle(Node):
         self.linear_speed = 2.0 #m/s
         self.angular_speed = 2.0 #rad/s
         self.smaller_angle_deg = 30 #can be changed!!!
-        self.smaller_angle = pi - math.radians(self.smaller_angle_deg)
-        self.bigger_angle = pi - math.radians(180-self.smaller_angle_deg)
+        self.smaller_angle = math.radians(self.smaller_angle_deg)
+        self.bigger_angle = math.radians(180-90-self.smaller_angle_deg)
         
         self.first_leg_time = 2 #can be changed. affects hypot and second leg length
         self.smaller_angle_time = self.smaller_angle/self.angular_speed

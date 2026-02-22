@@ -7,6 +7,7 @@ venv/
 #hello there!
 .DS_Store
 Thumbs.db
+workspace/build/*
 
 .vscode/
 .idea/
