@@ -12,6 +12,7 @@ my_turtle_controller/__init__.py
 my_turtle_controller/turtle_8.py
 my_turtle_controller/turtle_mover.py
 my_turtle_controller/turtle_pose_follow.py
+my_turtle_controller/turtle_var3.py
 resource/my_turtle_controller
 test/test_copyright.py
 test/test_flake8.py

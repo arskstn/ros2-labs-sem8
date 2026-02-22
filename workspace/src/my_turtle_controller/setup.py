@@ -25,6 +25,7 @@ setup(
     entry_points={
         'console_scripts': ['turtle_mover = my_turtle_controller.turtle_mover:main',
                             'turtle_8 = my_turtle_controller.turtle_8:main',
+                            'turtle_var3 = my_turtle_controller.turtle_var3:main',
                             'turtle_pose = my_turtle_controller.turtle_pose_follow:main'
         ],
     },

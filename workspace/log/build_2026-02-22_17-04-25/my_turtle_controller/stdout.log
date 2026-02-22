@@ -1,0 +1,25 @@
+running egg_info
+writing ../../build/my_turtle_controller/my_turtle_controller.egg-info/PKG-INFO
+writing dependency_links to ../../build/my_turtle_controller/my_turtle_controller.egg-info/dependency_links.txt
+writing entry points to ../../build/my_turtle_controller/my_turtle_controller.egg-info/entry_points.txt
+writing requirements to ../../build/my_turtle_controller/my_turtle_controller.egg-info/requires.txt
+writing top-level names to ../../build/my_turtle_controller/my_turtle_controller.egg-info/top_level.txt
+reading manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+writing manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+running build
+running build_py
+copying my_turtle_controller/turtle_var3.py -> /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+running install
+running install_lib
+copying /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller/turtle_var3.py -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+byte-compiling /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_var3.py to turtle_var3.cpython-312.pyc
+running install_data
+running install_egg_info
+removing '/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller-0.0.0-py3.12.egg-info' (and everything under it)
+Copying ../../build/my_turtle_controller/my_turtle_controller.egg-info to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller-0.0.0-py3.12.egg-info
+running install_scripts
+Installing turtle_8 script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+Installing turtle_mover script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+Installing turtle_pose script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+Installing turtle_var3 script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+writing list of installed files to '/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log'

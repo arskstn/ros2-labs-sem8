@@ -1,0 +1,27 @@
+[0.454s] Invoking command in '/home/ars/ros2-labs-sem8/workspace/src/my_turtle_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_turtle_controller build --build-base /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build install --record /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log --single-version-externally-managed install_data
+[0.594s] running egg_info
+[0.602s] writing ../../build/my_turtle_controller/my_turtle_controller.egg-info/PKG-INFO
+[0.602s] writing dependency_links to ../../build/my_turtle_controller/my_turtle_controller.egg-info/dependency_links.txt
+[0.603s] writing entry points to ../../build/my_turtle_controller/my_turtle_controller.egg-info/entry_points.txt
+[0.603s] writing requirements to ../../build/my_turtle_controller/my_turtle_controller.egg-info/requires.txt
+[0.603s] writing top-level names to ../../build/my_turtle_controller/my_turtle_controller.egg-info/top_level.txt
+[0.619s] reading manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+[0.620s] writing manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+[0.620s] running build
+[0.620s] running build_py
+[0.620s] copying my_turtle_controller/turtle_var3.py -> /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+[0.620s] running install
+[0.623s] running install_lib
+[0.632s] copying /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller/turtle_var3.py -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+[0.632s] byte-compiling /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_var3.py to turtle_var3.cpython-312.pyc
+[0.632s] running install_data
+[0.633s] running install_egg_info
+[0.641s] removing '/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller-0.0.0-py3.12.egg-info' (and everything under it)
+[0.641s] Copying ../../build/my_turtle_controller/my_turtle_controller.egg-info to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller-0.0.0-py3.12.egg-info
+[0.642s] running install_scripts
+[0.704s] Installing turtle_8 script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.704s] Installing turtle_mover script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.705s] Installing turtle_pose script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.705s] Installing turtle_var3 script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.705s] writing list of installed files to '/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log'
+[0.719s] Invoked command in '/home/ars/ros2-labs-sem8/workspace/src/my_turtle_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_turtle_controller build --build-base /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build install --record /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log --single-version-externally-managed install_data
