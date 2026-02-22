@@ -33,7 +33,7 @@ class TurtleFigureTriangle(Node):
 
         self.twist_msg = Twist()
 
-        self.timer_period = 0.1
+        self.timer_period = 0.01
         self.timer = self.create_timer(self.timer_period, self.move_turtle)
 
         self.start_time = self.get_clock().now().nanoseconds / 1e9
