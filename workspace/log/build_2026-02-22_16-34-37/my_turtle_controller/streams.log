@@ -1,0 +1,45 @@
+[0.458s] Invoking command in '/home/ars/ros2-labs-sem8/workspace/src/my_turtle_controller': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_turtle_controller build --build-base /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build install --record /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log --single-version-externally-managed install_data
+[0.588s] running egg_info
+[0.588s] creating ../../build/my_turtle_controller/my_turtle_controller.egg-info
+[0.597s] writing ../../build/my_turtle_controller/my_turtle_controller.egg-info/PKG-INFO
+[0.597s] writing dependency_links to ../../build/my_turtle_controller/my_turtle_controller.egg-info/dependency_links.txt
+[0.597s] writing entry points to ../../build/my_turtle_controller/my_turtle_controller.egg-info/entry_points.txt
+[0.597s] writing requirements to ../../build/my_turtle_controller/my_turtle_controller.egg-info/requires.txt
+[0.597s] writing top-level names to ../../build/my_turtle_controller/my_turtle_controller.egg-info/top_level.txt
+[0.597s] writing manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+[0.614s] reading manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+[0.614s] writing manifest file '../../build/my_turtle_controller/my_turtle_controller.egg-info/SOURCES.txt'
+[0.614s] running build
+[0.614s] running build_py
+[0.614s] creating /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build
+[0.614s] creating /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib
+[0.614s] creating /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+[0.614s] copying my_turtle_controller/__init__.py -> /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+[0.614s] copying my_turtle_controller/turtle_pose_follow.py -> /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+[0.614s] copying my_turtle_controller/turtle_8.py -> /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+[0.614s] copying my_turtle_controller/turtle_mover.py -> /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller
+[0.614s] running install
+[0.617s] running install_lib
+[0.626s] creating /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+[0.626s] copying /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller/__init__.py -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+[0.626s] copying /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller/turtle_pose_follow.py -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+[0.626s] copying /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller/turtle_8.py -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+[0.626s] copying /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build/lib/my_turtle_controller/turtle_mover.py -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller
+[0.626s] byte-compiling /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__init__.py to __init__.cpython-312.pyc
+[0.626s] byte-compiling /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_pose_follow.py to turtle_pose_follow.cpython-312.pyc
+[0.627s] byte-compiling /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_8.py to turtle_8.cpython-312.pyc
+[0.627s] byte-compiling /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_mover.py to turtle_mover.cpython-312.pyc
+[0.627s] running install_data
+[0.627s] creating /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/ament_index
+[0.628s] creating /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/ament_index/resource_index
+[0.628s] creating /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/ament_index/resource_index/packages
+[0.628s] copying resource/my_turtle_controller -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/ament_index/resource_index/packages
+[0.628s] copying package.xml -> /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/my_turtle_controller
+[0.628s] running install_egg_info
+[0.636s] Copying ../../build/my_turtle_controller/my_turtle_controller.egg-info to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller-0.0.0-py3.12.egg-info
+[0.637s] running install_scripts
+[0.699s] Installing turtle_8 script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.699s] Installing turtle_mover script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.699s] Installing turtle_pose script to /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller
+[0.699s] writing list of installed files to '/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log'
+[0.712s] Invoked command in '/home/ars/ros2-labs-sem8/workspace/src/my_turtle_controller' returned '0': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com PYTHONPATH=/home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/my_turtle_controller build --build-base /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/build install --record /home/ars/ros2-labs-sem8/workspace/build/my_turtle_controller/install.log --single-version-externally-managed install_data
