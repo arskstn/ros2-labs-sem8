@@ -48,6 +48,7 @@ class TurtleFigureTriangle(Node):
         self.smaller_angle_time = self.smaller_angle/self.angular_speed
         
         self.hypot_time = (self.smaller_leg_length / math.cos(pi + self.smaller_angle)) / self.linear_speed
+        self.hypot_length = self.hypot_time * self.linear_speed
         
         self.bigger_angle_time = self.bigger_angle/self.angular_speed
         self.bigger_leg_length = abs(self.smaller_leg_length * math.tan(pi + self.smaller_angle))
@@ -71,9 +72,9 @@ class TurtleFigureTriangle(Node):
         #calculating verteces
         self.goal_x_1 = self.initial_x + self.smaller_leg_length
         self.goal_y_1 = self.initial_y
-        self.goal_theta_1 = 2*pi - (self.smaller_angle + pi) #150 deg (180-30)
+        self.goal_theta_1 = self.smaller_angle #150 deg (180-30)
         self.goal_x_2 = self.initial_x
-        self.goal_y_2 = self.initial_y + self.bigger_leg_length
+        self.goal_y_2 = math.sin(self.smaller_angle_deg) * self.hypot_length
         self.goal_theta_2 = -pi/2
         self.goal_x_3 = self.initial_x
         self.goal_y_3 = self.initial_y
@@ -87,6 +88,8 @@ class TurtleFigureTriangle(Node):
         elapsed = current_time - self.start_time
 
         if self.state == 1:
+            self.get_logger().info(f'Moving to: x={self.goal_x_1:.2f}, y={self.goal_y_1:.2f}')
+        
             dx = self.goal_x_1 - self.current_x
             dy = self.goal_y_1 - self.current_y
             distance = (dx**2 + dy**2)**(1/2)
@@ -99,6 +102,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.linear.x = 0.0
 
         elif self.state == 2:
+            self.get_logger().info(f'Moving to: theta={self.goal_theta_1:.2f}')
             angle_error = self.goal_theta_1 - self.current_theta
             
             if angle_error > self.epsilon:
@@ -108,6 +112,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.angular.z = 0.0
                 
         elif self.state == 3:
+            self.get_logger().info(f'Moving to: x={self.goal_x_2:.2f}, y={self.goal_y_2:.2f}')
             dx = self.goal_x_2 - self.current_x
             dy = self.goal_y_2 - self.current_y
             distance = (dx**2 + dy**2)**(1/2)
@@ -120,6 +125,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.linear.x = 0.0
                 
         elif self.state == 4:
+            self.get_logger().info(f'Moving to: theta={self.goal_theta_2:.2f}')
             angle_error = self.goal_theta_2 - self.current_theta
             
             if angle_error > self.epsilon:
@@ -129,6 +135,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.angular.z = 0.0
                 
         elif self.state == 5:
+            self.get_logger().info(f'Moving to: x={self.goal_x_3:.2f}, y={self.goal_y_3:.2f}')
             dx = self.goal_x_3 - self.current_x
             dy = self.goal_y_3 - self.current_y
             distance = (dx**2 + dy**2)**(1/2)
@@ -141,6 +148,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.linear.x = 0.0
         
         else:
+            self.get_logger().info(f'Moving to: theta={self.goal_theta_3:.2f}')
             angle_error = self.goal_theta_3 - self.current_theta
             
             if angle_error > self.epsilon:
@@ -150,10 +158,10 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.angular.z = 0.0
        
         self.publisher_.publish(self.twist_msg)
-        self.get_logger().info(
-            f'Publishing velocity: linear={self.twist_msg.linear.x:.2f}, '
-            f'angular={self.twist_msg.angular.z:.2f}, state={self.state}'
-        )
+        # self.get_logger().info(
+        #     f'Publishing velocity: linear={self.twist_msg.linear.x:.2f}, '
+        #     f'angular={self.twist_msg.angular.z:.2f}, state={self.state}'
+        # )
 
 def main(args=None):
     rclpy.init(args=args)
