@@ -7,8 +7,10 @@ import math
 from math import pi
 
 '''
-TODO: углы нормализовать [-pi;+pi] надо
-при движении от второй вершины к начальной (третьей) затычка для угла стоит
+используется абсолютная позиция по варианту 3.
+
+TODO: углы нормализовать [-pi;+pi] надо - некритично, просто она будет двигаться на 350 градусов вместо 10 против часовой стрелки если потребуется
+при движении от второй вершины к начальной (третьей) затычка для угла стоит - сломает логику если начальная тетта != 0
 '''
 
 #let smaller angle be 30 degrees. can be changed
@@ -96,6 +98,8 @@ class TurtleFigureTriangle(Node):
     def move_turtle(self):
         current_time = self.get_clock().now().nanoseconds / 1e9
         elapsed = current_time - self.start_time
+        
+        #вывод достижения вершин
 
         if self.state == 1:
             self.get_logger().info(f'Moving to: x={self.goal_x_1:.2f}, y={self.goal_y_1:.2f}')
@@ -108,6 +112,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.linear.x = self.linear_speed
                 self.twist_msg.angular.z = 0.0
             else:
+                self.get_logger().info(f'VERTIX 1 REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 2
                 self.twist_msg.linear.x = 0.0
 
@@ -131,6 +136,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.linear.x = self.linear_speed
                 self.twist_msg.angular.z = 0.0
             else:
+                self.get_logger().info(f'VERTIX 2 REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 4
                 self.twist_msg.linear.x = 0.0
                 
@@ -154,6 +160,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.linear.x = self.linear_speed
                 self.twist_msg.angular.z = 0.0
             else:
+                self.get_logger().info(f'VERTIX 3 REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 6
                 self.twist_msg.linear.x = 0.0
         
@@ -164,6 +171,7 @@ class TurtleFigureTriangle(Node):
             if abs(angle_error) > self.epsilon:
                 self.twist_msg.angular.z = self.angular_speed
             else:
+                self.get_logger().info(f'INITIAL POSITION REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 1
                 self.twist_msg.angular.z = 0.0
        
