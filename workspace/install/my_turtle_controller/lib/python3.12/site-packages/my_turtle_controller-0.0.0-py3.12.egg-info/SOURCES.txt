@@ -14,6 +14,9 @@ my_turtle_controller/turtle_8.py
 my_turtle_controller/turtle_mover.py
 my_turtle_controller/turtle_pose_follow.py
 my_turtle_controller/turtle_var3.py
+my_turtle_controller/turtle_var3_lab2.py
+my_turtle_controller/turtle_var3_lab3.py
+my_turtle_controller/turtle_var3_lab4.py
 resource/my_turtle_controller
 test/test_copyright.py
 test/test_flake8.py
