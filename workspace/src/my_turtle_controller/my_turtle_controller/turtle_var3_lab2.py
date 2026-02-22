@@ -98,88 +98,67 @@ class TurtleFigureTriangle(Node):
     def move_turtle(self):
         current_time = self.get_clock().now().nanoseconds / 1e9
         elapsed = current_time - self.start_time
-        
-        #вывод достижения вершин
 
         if self.state == 1:
-            self.get_logger().info(f'Moving to: x={self.goal_x_1:.2f}, y={self.goal_y_1:.2f}')
-        
-            dx = self.goal_x_1 - self.current_x
-            dy = self.goal_y_1 - self.current_y
-            distance = (dx**2 + dy**2)**(1/2)
-            
-            if distance > self.epsilon:
-                self.twist_msg.linear.x = self.linear_speed
-                self.twist_msg.angular.z = 0.0
-            else:
+            self.twist_msg.linear.x = self.linear_speed
+            self.twist_msg.angular.z = 0.0
+
+            if elapsed > self.smaller_leg_time:
                 self.get_logger().info(f'VERTIX 1 REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 2
-                self.twist_msg.linear.x = 0.0
+                self.start_time = current_time
 
         elif self.state == 2:
-            self.get_logger().info(f'Moving to: theta={self.goal_theta_1:.2f}')
-            angle_error = self.goal_theta_1 - self.current_theta
-            
-            if abs(angle_error) > self.epsilon:
-                self.twist_msg.angular.z = self.angular_speed
-            else:
+            self.twist_msg.linear.x = 0.0
+            self.twist_msg.angular.z = self.angular_speed
+
+            if elapsed > self.smaller_angle_time:
                 self.state = 3
-                self.twist_msg.angular.z = 0.0
+                self.start_time = current_time
                 
         elif self.state == 3:
-            self.get_logger().info(f'Moving to: x={self.goal_x_2:.2f}, y={self.goal_y_2:.2f}')
-            dx = self.goal_x_2 - self.current_x
-            dy = self.goal_y_2 - self.current_y
-            distance = (dx**2 + dy**2)**(1/2)
-            
-            if distance > self.epsilon:
-                self.twist_msg.linear.x = self.linear_speed
-                self.twist_msg.angular.z = 0.0
-            else:
+            self.twist_msg.linear.x = self.linear_speed
+            self.twist_msg.angular.z = 0.0
+
+            if elapsed > self.hypot_time:
                 self.get_logger().info(f'VERTIX 2 REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 4
-                self.twist_msg.linear.x = 0.0
-                
+                self.start_time = current_time
+        
         elif self.state == 4:
-            self.get_logger().info(f'Moving to: theta={self.goal_theta_2:.2f}')
-            angle_error = self.goal_theta_2 - self.current_theta
-            
-            if abs(angle_error) > self.epsilon:
-                self.twist_msg.angular.z = self.angular_speed
-            else:
+            self.twist_msg.linear.x = 0.0
+            self.twist_msg.angular.z = self.angular_speed
+
+            if elapsed > self.bigger_angle_time:
                 self.state = 5
-                self.twist_msg.angular.z = 0.0
-                
+                self.start_time = current_time
+        
         elif self.state == 5:
-            self.get_logger().info(f'Moving to: x={self.goal_x_3:.2f}, y={self.goal_y_3:.2f}')
-            dx = self.goal_x_3 - self.current_x
-            dy = self.goal_y_3 - self.current_y
-            distance = (dx**2 + dy**2)**(1/2)
-            
-            if distance > self.epsilon:
-                self.twist_msg.linear.x = self.linear_speed
-                self.twist_msg.angular.z = 0.0
-            else:
+            self.twist_msg.linear.x = self.linear_speed
+            self.twist_msg.angular.z = 0.0
+
+            if elapsed > self.bigger_leg_time:
                 self.get_logger().info(f'VERTIX 3 REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 6
-                self.twist_msg.linear.x = 0.0
+                self.start_time = current_time
         
         else:
-            self.get_logger().info(f'Moving to: theta={self.goal_theta_3:.2f}')
-            angle_error = self.goal_theta_3 - self.current_theta
+            self.twist_msg.linear.x = 0.0
+            self.twist_msg.angular.z = self.angular_speed
             
-            if abs(angle_error) > self.epsilon:
-                self.twist_msg.angular.z = self.angular_speed
-            else:
+            if elapsed > self.reset_angle_time:
                 self.get_logger().info(f'INITIAL POSITION REACHED!!!!!!!!!!!!!!!!!!!!!!')
                 self.state = 1
-                self.twist_msg.angular.z = 0.0
-       
+                self.start_time = current_time
+            
+        
+        
+
         self.publisher_.publish(self.twist_msg)
-        # self.get_logger().info(
-        #     f'Publishing velocity: linear={self.twist_msg.linear.x:.2f}, '
-        #     f'angular={self.twist_msg.angular.z:.2f}, state={self.state}'
-        # )
+        self.get_logger().info(
+            f'Publishing velocity: linear={self.twist_msg.linear.x:.2f}, '
+            f'angular={self.twist_msg.angular.z:.2f}, state={self.state}'
+        )
 
 def main(args=None):
     rclpy.init(args=args)
