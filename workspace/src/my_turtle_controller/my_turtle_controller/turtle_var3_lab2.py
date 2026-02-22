@@ -6,6 +6,11 @@ from turtlesim.msg import Pose
 import math
 from math import pi
 
+'''
+TODO: углы нормализовать [-pi;+pi] надо
+при движении от второй вершины к начальной (третьей) затычка для угла стоит
+'''
+
 #let smaller angle be 30 degrees. can be changed
 
 class TurtleFigureTriangle(Node):
@@ -38,7 +43,7 @@ class TurtleFigureTriangle(Node):
         self.current_theta = self.initial_theta
         
         self.linear_speed = 1.0 #m/s
-        self.angular_speed = 2.0 #rad/s
+        self.angular_speed = 1.0 #rad/s
         self.smaller_angle_deg = 30 #can be changed!!!
         self.smaller_angle = pi - math.radians(self.smaller_angle_deg)
         self.bigger_angle = pi - math.radians(180-90-self.smaller_angle_deg)
@@ -73,14 +78,19 @@ class TurtleFigureTriangle(Node):
         self.goal_x_1 = self.initial_x + self.smaller_leg_length
         self.goal_y_1 = self.initial_y
         self.goal_theta_1 = self.smaller_angle #150 deg (180-30)
-        self.goal_x_2 = self.initial_x
-        self.goal_y_2 = math.sin(self.smaller_angle_deg) * self.hypot_length
-        self.goal_theta_2 = -pi/2
+        self.goal_x_2 = self.initial_x # + self.hypot_length * math.cos(math.radians(self.smaller_angle_deg)) - надо ли? х этой вершины будет на одной линией со стартом
+        self.goal_y_2 = self.initial_y + math.sin(math.radians(self.smaller_angle_deg)) * self.hypot_length
+        self.goal_theta_2 = -pi/2 #затычка, но для меньшего угла = 30 градусов работает. по идее и дальше должна работать тк мы тупо в начало пойдем. Сломается если стартовая тетта не ноль, думаю
         self.goal_x_3 = self.initial_x
         self.goal_y_3 = self.initial_y
         self.goal_theta_3 = 0.0
         
-        self.epsilon = 0.05 #allowed error for distance/angle measurement
+        #дорогому слушателю по имени N посвящается:
+        #а зачем ты сначала от пи отнимаешь угол в опеределении? чтобы по внутренним ездить углам а не по внешним
+        #а почему ты тут math.radians берешь от угла который кидал в градусы специально. потому что лев не заботит себя проблемами излишних вычислений. а вводить клон угла без учета пи мне лень. сам сделай кинь PR, я лабы спидраню
+        
+        self.epsilon = 0.05 #allowed error for distance measurement
+        self.angle_epsilon = 0.05 #allowed error for angle measurement
         
 
     def move_turtle(self):
@@ -105,7 +115,7 @@ class TurtleFigureTriangle(Node):
             self.get_logger().info(f'Moving to: theta={self.goal_theta_1:.2f}')
             angle_error = self.goal_theta_1 - self.current_theta
             
-            if angle_error > self.epsilon:
+            if abs(angle_error) > self.epsilon:
                 self.twist_msg.angular.z = self.angular_speed
             else:
                 self.state = 3
@@ -128,7 +138,7 @@ class TurtleFigureTriangle(Node):
             self.get_logger().info(f'Moving to: theta={self.goal_theta_2:.2f}')
             angle_error = self.goal_theta_2 - self.current_theta
             
-            if angle_error > self.epsilon:
+            if abs(angle_error) > self.epsilon:
                 self.twist_msg.angular.z = self.angular_speed
             else:
                 self.state = 5
@@ -151,7 +161,7 @@ class TurtleFigureTriangle(Node):
             self.get_logger().info(f'Moving to: theta={self.goal_theta_3:.2f}')
             angle_error = self.goal_theta_3 - self.current_theta
             
-            if angle_error > self.epsilon:
+            if abs(angle_error) > self.epsilon:
                 self.twist_msg.angular.z = self.angular_speed
             else:
                 self.state = 1
