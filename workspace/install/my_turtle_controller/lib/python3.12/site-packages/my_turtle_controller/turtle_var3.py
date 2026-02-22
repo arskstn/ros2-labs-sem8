@@ -14,7 +14,7 @@ class TurtleFigureTriangle(Node):
         
         self.linear_speed = 1.0 #m/s
         self.angular_speed = 2.0 #rad/s
-        self.smaller_angle_deg = 30 #can be changed!!!
+        self.smaller_angle_deg = 23 #can be changed!!!
         self.smaller_angle = pi - math.radians(self.smaller_angle_deg)
         self.bigger_angle = pi - math.radians(180-90-self.smaller_angle_deg)
         
