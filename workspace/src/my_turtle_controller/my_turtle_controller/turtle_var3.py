@@ -12,17 +12,21 @@ class TurtleFigureTriangle(Node):
         super().__init__('turtle_figure_triangle')
         self.publisher_ = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
         
-        self.linear_speed = 2.0 #m/s
+        self.linear_speed = 1.0 #m/s
         self.angular_speed = 2.0 #rad/s
         self.smaller_angle_deg = 30 #can be changed!!!
-        self.smaller_angle = math.radians(self.smaller_angle_deg)
-        self.bigger_angle = math.radians(180-90-self.smaller_angle_deg)
+        self.smaller_angle = pi - math.radians(self.smaller_angle_deg)
+        self.bigger_angle = pi - math.radians(180-90-self.smaller_angle_deg)
         
-        self.first_leg_time = 2 #can be changed. affects hypot and second leg length
+        self.smaller_leg_time = 2 #can be changed. affects hypot and second leg length
+        self.smaller_leg_length = self.smaller_leg_time * self.linear_speed
         self.smaller_angle_time = self.smaller_angle/self.angular_speed
-        self.hypot_time = ((self.first_leg_time * self.linear_speed) / math.cos(self.smaller_angle)) / self.linear_speed
-        self.bigger_leg_time = ((self.first_leg_time * self.linear_speed) * math.tan(self.smaller_angle)) / self.linear_speed
+        
+        self.hypot_time = (self.smaller_leg_length / math.cos(pi + self.smaller_angle)) / self.linear_speed
+        
         self.bigger_angle_time = self.bigger_angle/self.angular_speed
+        self.bigger_leg_time = abs(self.smaller_leg_length * math.tan(pi + self.smaller_angle)) * self.linear_speed
+        
         self.reset_angle_time = (2*pi - self.bigger_angle - self.smaller_angle)/self.angular_speed
         
         
@@ -43,7 +47,7 @@ class TurtleFigureTriangle(Node):
             self.twist_msg.linear.x = self.linear_speed
             self.twist_msg.angular.z = 0.0
 
-            if elapsed > self.first_leg_time:
+            if elapsed > self.smaller_leg_time:
                 self.state = 2
                 self.start_time = current_time
 

@@ -9,6 +9,7 @@ venv/
 Thumbs.db
 workspace/build/*
 
+
 .vscode/
 .idea/
 
@@ -21,6 +22,7 @@ __pycache__/
 *.py[cod]
 *.egg-info/
 *.egg
+*.pyc
 
 dist/
 build/
