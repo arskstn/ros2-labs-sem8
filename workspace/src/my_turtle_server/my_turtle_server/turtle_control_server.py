@@ -2,52 +2,64 @@
 
 import rclpy
 from rclpy.node import Node
-from geometry_msgs.msg import Twist
-from turtlesim.msg import Pose
-from turtlesim.srv import SetPen, TeleportAbsolute
+from turtlesim.srv import TeleportAbsolute
 from std_srvs.srv import Empty
 
-'''
-TODO: Реализовать сервер, клиент
-привязать их к новому интерфейсу который будет кидать черепаху в начало
-'''
-
-# Импортируем сгенерированный модуль из пакета интерфейсов
 from my_turtle_interface.srv import SendToHome
 
-class TurtlesimWatchdog(Node):
+'''
+Сервер SendToHome: при вызове сервиса телепортирует черепашку в начальную позицию
+и сбрасывает симулятор через /reset.
+'''
+
+INITIAL_X = 5.544444561004639
+INITIAL_Y = 5.544444561004639
+INITIAL_THETA = 0.0
+
+
+class TurtleControlServer(Node):
     def __init__(self):
-        super().__init__('turtlesim_watchdog')
+        super().__init__('turtle_control_server')
+
+        # Сервис, который предоставляем клиентам
         self.srv = self.create_service(
-            SetVelocity, 
-            'set_velocity',
-            self.handle_set_velocity
+            SendToHome,
+            'send_to_home',
+            self.handle_send_to_home
         )
-        self.get_logger().info('Service /set_velocity is up and running!')
-        self.cmd_vel_publisher = self.create_publisher(Twist, '/turtle1/cmd_vel', 10)
 
-    def handle_set_velocity(self, request, response):
-        linear = request.linear
-        angular = request.angular
+        # Клиент для телепортации черепашки
+        self.teleport_client = self.create_client(TeleportAbsolute, '/turtle1/teleport_absolute')
 
-        self.get_logger().info(f'Received velocity request: linear={linear}, angular={angular}')
+        # Клиент для сброса симулятора
+        self.reset_client = self.create_client(Empty, '/reset')
 
-        # Формируем Twist
-        twist_msg = Twist()
-        twist_msg.linear.x = float(linear)
-        twist_msg.angular.z = float(angular)
+        self.get_logger().info('Service /send_to_home is up and running!')
 
-        # Публикуем в топик /turtle1/cmd_vel
-        self.cmd_vel_publisher.publish(twist_msg)
+    def handle_send_to_home(self, _request, response):
+        self.get_logger().info('Received SendToHome request, teleporting turtle...')
 
-        # Заполняем ответ
+        if not self.teleport_client.wait_for_service(timeout_sec=3.0):
+            self.get_logger().warn('/turtle1/teleport_absolute not available')
+            response.success = False
+            response.message = 'Teleport service not available'
+            return response
+
+        teleport_req = TeleportAbsolute.Request()
+        teleport_req.x = INITIAL_X
+        teleport_req.y = INITIAL_Y
+        teleport_req.theta = INITIAL_THETA
+        self.teleport_client.call_async(teleport_req)
+
         response.success = True
-        response.message = f'Published velocity: linear={linear:.2f}, angular={angular:.2f}'
+        response.message = f'Turtle teleported to initial position: x={INITIAL_X:.2f}, y={INITIAL_Y:.2f}'
+        self.get_logger().info(response.message)
         return response
+
 
 def main(args=None):
     rclpy.init(args=args)
-    node = VelocityServiceServer()
+    node = TurtleControlServer()
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
@@ -55,6 +67,7 @@ def main(args=None):
     finally:
         node.destroy_node()
         rclpy.shutdown()
+
 
 if __name__ == '__main__':
     main()

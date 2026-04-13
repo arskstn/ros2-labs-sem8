@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'turtle_control_server = my_turtle_server.turtle_control_server:main',
         ],
     },
 )

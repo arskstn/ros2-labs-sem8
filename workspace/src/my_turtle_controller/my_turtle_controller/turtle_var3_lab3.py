@@ -151,7 +151,7 @@ class TurtleFigureTriangle(Node):
                 self.twist_msg.angular.z = 0.0
                 
         elif self.state == 5:
-            self.get_logger().info(f'Moving to: x={self.goal_x_3:.2f}, y={self.goal_y_3:.2f}')
+            #self.get_logger().info(f'Moving to: x={self.goal_x_3:.2f}, y={self.goal_y_3:.2f}')
             dx = self.goal_x_3 - self.current_x
             dy = self.goal_y_3 - self.current_y
             distance = (dx**2 + dy**2)**(1/2)
