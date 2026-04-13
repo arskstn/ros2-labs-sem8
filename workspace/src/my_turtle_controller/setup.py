@@ -31,7 +31,8 @@ setup(
                             'turtle_var3_lab4 = my_turtle_controller.turtle_var3_lab4:main',
                             'turtle_pose = my_turtle_controller.turtle_pose_follow:main',
                             'turtle_var3_lab5 = my_turtle_controller.turtle_var3_lab5:main',
-                            'turtle_var3_lab6 = my_turtle_controller.turtle_var3_lab6:main'
+                            'turtle_var3_lab6 = my_turtle_controller.turtle_var3_lab6:main',
+                            'turtle_var3_lab7 = my_turtle_controller.turtle_var3_lab7:main'
         ],
     },
 )

@@ -9,6 +9,7 @@
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_var3.py
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_mover.py
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_var3_lab3.py
+/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/turtle_var3_lab7.py
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/__init__.cpython-312.pyc
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/calc.cpython-312.pyc
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/turtle_var3_lab2.cpython-312.pyc
@@ -20,6 +21,7 @@
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/turtle_var3.cpython-312.pyc
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/turtle_mover.cpython-312.pyc
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/turtle_var3_lab3.cpython-312.pyc
+/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller/__pycache__/turtle_var3_lab7.cpython-312.pyc
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/ament_index/resource_index/packages/my_turtle_controller
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/share/my_turtle_controller/package.xml
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/python3.12/site-packages/my_turtle_controller-0.0.0-py3.12.egg-info/PKG-INFO
@@ -38,3 +40,4 @@
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller/turtle_var3_lab4
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller/turtle_var3_lab5
 /home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller/turtle_var3_lab6
+/home/ars/ros2-labs-sem8/workspace/install/my_turtle_controller/lib/my_turtle_controller/turtle_var3_lab7

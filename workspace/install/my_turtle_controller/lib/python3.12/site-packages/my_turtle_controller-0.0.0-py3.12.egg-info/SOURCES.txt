@@ -19,6 +19,7 @@ my_turtle_controller/turtle_var3_lab3.py
 my_turtle_controller/turtle_var3_lab4.py
 my_turtle_controller/turtle_var3_lab5.py
 my_turtle_controller/turtle_var3_lab6.py
+my_turtle_controller/turtle_var3_lab7.py
 resource/my_turtle_controller
 test/test_copyright.py
 test/test_flake8.py

@@ -1,0 +1,3 @@
+float64 distance_traveled
+float64 max_speed
+float64 min_speed
