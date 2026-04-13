@@ -10,11 +10,10 @@ from math import pi
 
 
 PEN_STRAIGHT_COLORS = [
-    (255, 255, 255, 2, 0),  # white
-    (80,  255,  80, 2, 0),  # green
-    (80,   80, 255, 2, 0),  # blue
+    (255, 255, 255, 4, 0),  # white
+    (80,  255,  80, 4, 0),  # green
 ]
-PEN_TURNING = (255, 80, 80, 3, 0)  # red
+PEN_OFF = (0, 0, 0, 1, 1)  # перо выключено во время поворота
 
 
 class TurtleFigureTriangleLab4(Node):
@@ -112,8 +111,8 @@ class TurtleFigureTriangleLab4(Node):
             return
         self.is_turning = turning
         if turning:
-            self.set_pen(*PEN_TURNING)
-            self.get_logger().info('Turning: pen red')
+            self.set_pen(*PEN_OFF)
+            self.get_logger().info('Turning: pen off')
         else:
             self.straight_color_index = (self.straight_color_index + 1) % len(PEN_STRAIGHT_COLORS)
             self.set_pen(*PEN_STRAIGHT_COLORS[self.straight_color_index])
