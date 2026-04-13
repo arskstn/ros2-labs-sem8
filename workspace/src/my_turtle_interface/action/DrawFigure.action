@@ -1,0 +1,9 @@
+# goal - запуск миссии без параметров
+---
+# result
+bool success
+string message
+---
+# feedback
+int32 vertex_reached
+string status
